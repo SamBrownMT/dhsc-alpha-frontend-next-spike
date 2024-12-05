@@ -1,3 +1,5 @@
+'use client'
+
 import React from "react";
 import Layout from "../../components/common/layout/Layout";
 import ButtonWithArrow from "../../components/common/buttons/navigation/button-with-arrow/ButtonWithArrow";

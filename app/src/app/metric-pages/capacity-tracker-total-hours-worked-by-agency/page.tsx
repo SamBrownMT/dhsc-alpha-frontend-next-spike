@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useEffect, useRef, useState } from "react";
 import Layout from "../../../components/common/layout/Layout";
 import { Breadcrumb } from "../../../data/interfaces/Breadcrumb";
