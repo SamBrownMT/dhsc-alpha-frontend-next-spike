@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useEffect, useRef } from "react";
 import "./metricCard.scss";
 import { MetricCardData } from "../../../data/interfaces/MetricCardData";

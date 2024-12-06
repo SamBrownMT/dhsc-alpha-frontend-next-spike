@@ -1,3 +1,5 @@
+'use client'
+
 import React, { MouseEvent, ReactNode, useEffect, useRef } from "react";
 import { initAll } from "../../../assets/js/govuk-frontend.min.js";
 import Header from "../header/Header";

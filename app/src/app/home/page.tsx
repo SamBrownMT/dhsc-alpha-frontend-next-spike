@@ -1,13 +1,9 @@
-'use client'
-
 import React from "react";
 import Layout from "../../components/common/layout/Layout";
 import { Breadcrumb } from "../../data/interfaces/Breadcrumb";
 import { MetricCardData } from "../../data/interfaces/MetricCardData";
 import HomePageDataUpdatesPanel from "../../components/home-page-components/home-page-data-updates-panel/HomePageDataUpdatesPanel";
 import HomePageDataDefinitionsPanel from "../../components/home-page-components/home-page-data-definitions-panel/HomePageDataDefinitionsPanel";
-import { useLoaderData } from "react-router-dom";
-import { LoaderData } from "../../data/types/LoaderData";
 import CapacityTrackerTotalHoursAgencyWorkedByRegionService from "../../services/capacity-tracker/CapacityTrackerTotalHoursAgencyWorkedByRegionService";
 import MetricCard from "../../components/metric-components/metric-card/MetricCard";
 import HomePageAddFavouriteMetricsPanel from "../../components/home-page-components/home-page-add-favourite-metrics-panel/FavouriteMetricsPanel";
@@ -18,19 +14,18 @@ import YourFavouriteMetricsSidePanel from "../../components/common/panels/your-f
 import DataGuideSidePanel from "../../components/common/panels/data-guide-side-panel/DataGuideSidePanel";
 import ReportLinksSidePanel from "../../components/common/panels/report-links-side-panel/ReportLinksSidePanel";
 import KnowledgeCentreSidePanel from "../../components/common/panels/knowledge-centre-side-panel/KnowledgeCentreSidePanel";
+import { getCapacityTrackerData } from "../../api/api"; 
 
-const HomePage: React.FC = () => {
+export default async function HomePage() {
+  const capacityTrackerTotalHoursAgencyWorkedByRegionData = await getCapacityTrackerData("region");
+  const capacityTrackerTotalHoursAgencyWorkedByLaData = await getCapacityTrackerData("la");
+
   const breadcrumbs: Array<Breadcrumb> = [
     {
       text: "Homepage",
       url: "/home",
     },
   ];
-
-  const {
-    capacityTrackerTotalHoursAgencyWorkedByRegionData,
-    capacityTrackerTotalHoursAgencyWorkedByLaData,
-  } = useLoaderData() as LoaderData;
 
   const capacityTrackerTotalHoursAgencyWorkedByRegionService =
     new CapacityTrackerTotalHoursAgencyWorkedByRegionService(
@@ -96,6 +91,4 @@ const HomePage: React.FC = () => {
       </div>
     </Layout>
   );
-};
-
-export default HomePage;
+}
