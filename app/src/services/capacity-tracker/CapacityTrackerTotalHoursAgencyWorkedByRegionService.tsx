@@ -1,3 +1,5 @@
+'use client'
+
 import { generateBarchartSvg } from "../charts/BarchartService";
 import { BarchartData } from "../../data/interfaces/BarchartData";
 import { CapacityTrackerTotalHoursAgencyWorked } from "../../data/interfaces/CapacityTrackerTotalHoursAgencyWorked";

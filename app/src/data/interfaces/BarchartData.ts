@@ -1,7 +1,7 @@
 export interface BarchartData {
   xAxisValue: string;
-  metric: string;
   value: number;
+  metric: string;
 }
 
 export interface BarchartProps {

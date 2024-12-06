@@ -1,5 +1,7 @@
 'use client'
 
+import "../../globals.scss";
+import "../../styles/main.scss";
 import React from "react";
 import Link from "next/link";
 import Layout from "../../components/common/layout/Layout";

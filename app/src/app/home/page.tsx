@@ -1,11 +1,9 @@
+import "../../globals.scss";
+import "../../styles/main.scss";
 import React from "react";
 import Layout from "../../components/common/layout/Layout";
 import { Breadcrumb } from "../../data/interfaces/Breadcrumb";
-import { MetricCardData } from "../../data/interfaces/MetricCardData";
-import HomePageDataUpdatesPanel from "../../components/home-page-components/home-page-data-updates-panel/HomePageDataUpdatesPanel";
-import HomePageDataDefinitionsPanel from "../../components/home-page-components/home-page-data-definitions-panel/HomePageDataDefinitionsPanel";
-import CapacityTrackerTotalHoursAgencyWorkedByRegionService from "../../services/capacity-tracker/CapacityTrackerTotalHoursAgencyWorkedByRegionService";
-import MetricCard from "../../components/metric-components/metric-card/MetricCard";
+import MetricCardsContainer from "../../components/metric-components/MetricCardsContainer";
 import HomePageAddFavouriteMetricsPanel from "../../components/home-page-components/home-page-add-favourite-metrics-panel/FavouriteMetricsPanel";
 import DataCategoriesSidePanel from "../../components/common/panels/data-categories-side-panel/DataCategoriesSidePanel";
 import MainCategoriesSearch from "../../components/common/main-categories-search/MainCategoriesSearch";
@@ -14,7 +12,7 @@ import YourFavouriteMetricsSidePanel from "../../components/common/panels/your-f
 import DataGuideSidePanel from "../../components/common/panels/data-guide-side-panel/DataGuideSidePanel";
 import ReportLinksSidePanel from "../../components/common/panels/report-links-side-panel/ReportLinksSidePanel";
 import KnowledgeCentreSidePanel from "../../components/common/panels/knowledge-centre-side-panel/KnowledgeCentreSidePanel";
-import { getCapacityTrackerData } from "../../api/api"; 
+import { getCapacityTrackerData } from "../../api/api";
 
 export default async function HomePage() {
   const capacityTrackerTotalHoursAgencyWorkedByRegionData = await getCapacityTrackerData("region");
@@ -25,16 +23,6 @@ export default async function HomePage() {
       text: "Homepage",
       url: "/home",
     },
-  ];
-
-  const capacityTrackerTotalHoursAgencyWorkedByRegionService =
-    new CapacityTrackerTotalHoursAgencyWorkedByRegionService(
-      capacityTrackerTotalHoursAgencyWorkedByRegionData,
-      capacityTrackerTotalHoursAgencyWorkedByLaData
-    );
-
-  const metricCardsData: Array<MetricCardData> = [
-    capacityTrackerTotalHoursAgencyWorkedByRegionService.getMetricCardData(),
   ];
 
   return (
@@ -59,34 +47,13 @@ export default async function HomePage() {
         <div className="govuk-grid-column-two-thirds">
           <MainCategoriesSearch />
           <hr className="govuk-section-break govuk-section-break--s govuk-section-break--visible govuk-!-margin-bottom-3"></hr>
-
           <OrganisationFilter />
           <hr className="govuk-section-break govuk-section-break--s govuk-section-break--visible govuk-!-margin-bottom-7"></hr>
-          <div className="govuk-grid-row">
-            <div className="govuk-grid-column-full">
-              <h3 className="govuk-heading-s">Headline metrics</h3>
-            </div>
-          </div>
-          {metricCardsData.map((_, index) => {
-            if (index % 2 === 0) {
-              return (
-                <div className="govuk-grid-row" key={index}>
-                  <div className="govuk-grid-column-one-half">
-                    <MetricCard data={metricCardsData[index]} />
-                  </div>
-                  {metricCardsData[index + 1] && (
-                    <div className="govuk-grid-column-one-half">
-                      <MetricCard data={metricCardsData[index + 1]} />
-                    </div>
-                  )}
-                </div>
-              );
-            }
-            return null;
-          })}
+          <MetricCardsContainer
+            capacityTrackerTotalHoursAgencyWorkedByRegionData={capacityTrackerTotalHoursAgencyWorkedByRegionData}
+            capacityTrackerTotalHoursAgencyWorkedByLaData={capacityTrackerTotalHoursAgencyWorkedByLaData}
+          />
           <HomePageAddFavouriteMetricsPanel />
-          <HomePageDataUpdatesPanel />
-          <HomePageDataDefinitionsPanel />
         </div>
       </div>
     </Layout>

@@ -1,3 +1,5 @@
+'use client'
+
 import { BarchartProps } from "../../data/interfaces/BarchartData";
 import {
   initializeSvg,

@@ -1,5 +1,7 @@
 'use client'
 
+import "../../globals.scss";
+import "../../styles/main.scss";
 import React, { useEffect, useRef, useState } from "react";
 import Layout from "../../../components/common/layout/Layout";
 import { Breadcrumb } from "../../../data/interfaces/Breadcrumb";
