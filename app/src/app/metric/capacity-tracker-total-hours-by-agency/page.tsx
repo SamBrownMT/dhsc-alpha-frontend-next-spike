@@ -20,16 +20,11 @@ import SmartInsights from "../../../components/common/smart-insights/SmartInsigh
 import MetricDescription from "../../../components/metric-components/metric-description/MetricDescription";
 import MetricTable from "../../../components/metric-components/metric-table/MetricTable";
 import { getCapacityTrackerData } from "@/api/api";
+import ProtectedRoute from "@/components/util-components/protected-route/ProtectedRoute";
 
-const CapacityTrackerTotalHoursWorkedByAgencyPage: React.FC = async () => {
-  const capacityTrackerTotalHoursAgencyWorkedByRegionData = await getCapacityTrackerData("region");
-  const capacityTrackerTotalHoursAgencyWorkedByLaData = await getCapacityTrackerData("la");
-
-  const capacityTrackerTotalHoursAgencyWorkedService =
-    new CapacityTrackerTotalHoursAgencyWorkedService(
-      capacityTrackerTotalHoursAgencyWorkedByRegionData,
-      capacityTrackerTotalHoursAgencyWorkedByLaData
-    );
+const CapacityTrackerTotalHoursWorkedByAgencyPage: React.FC = () => {
+  const [capacityTrackerService, setCapacityTrackerService] =
+    useState<CapacityTrackerTotalHoursAgencyWorkedService | null>(null);
 
   const [selectMetricViewValue, setSelectMetricViewValue] =
     useState("barchart");
@@ -57,27 +52,39 @@ const CapacityTrackerTotalHoursWorkedByAgencyPage: React.FC = async () => {
     setMetricView(selectMetricViewValue);
   };
 
-  const getCurrentDataSet = () => {
-    return locationLevel === "region"
-      ? capacityTrackerTotalHoursAgencyWorkedService.getTotalHoursAgencyWorkedByRegionData()
-      : capacityTrackerTotalHoursAgencyWorkedService.getTotalHoursAgencyWorkedByLaData();
-  };
-
-  const barchart =
-    locationLevel === "region"
-      ? capacityTrackerTotalHoursAgencyWorkedService.createByRegionBarchart()
-      : capacityTrackerTotalHoursAgencyWorkedService.createByLaBarchart();
+  useEffect(() => {
+    const fetchData = async () => {
+      const regionData = await getCapacityTrackerData("region");
+      const laData = await getCapacityTrackerData("la");
+      setCapacityTrackerService(
+        new CapacityTrackerTotalHoursAgencyWorkedService(regionData, laData)
+      );
+    };
+    fetchData();
+  }, []);
 
   const svgContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (svgContainerRef.current) {
+    if (svgContainerRef.current && capacityTrackerService) {
+      const barchart =
+        locationLevel === "region"
+          ? capacityTrackerService.createByRegionBarchart()
+          : capacityTrackerService.createByLaBarchart();
+
       svgContainerRef.current.innerHTML = "";
       if (barchart) {
         svgContainerRef.current.appendChild(barchart);
       }
     }
-  }, [barchart]);
+  }, [capacityTrackerService, locationLevel]);
+
+  const getCurrentDataSet = () => {
+    if (!capacityTrackerService) return [];
+    return locationLevel === "region"
+      ? capacityTrackerService.getTotalHoursAgencyWorkedByRegionData()
+      : capacityTrackerService.getTotalHoursAgencyWorkedByLaData();
+  };
 
   const breadcrumbs: Array<Breadcrumb> = [
     {
@@ -181,4 +188,8 @@ const CapacityTrackerTotalHoursWorkedByAgencyPage: React.FC = async () => {
   );
 };
 
-export default CapacityTrackerTotalHoursWorkedByAgencyPage;
+const ProtectedCapacityTrackerPage: React.FC = () => {
+  return <ProtectedRoute element={<CapacityTrackerTotalHoursWorkedByAgencyPage />} />;
+};
+
+export default ProtectedCapacityTrackerPage;

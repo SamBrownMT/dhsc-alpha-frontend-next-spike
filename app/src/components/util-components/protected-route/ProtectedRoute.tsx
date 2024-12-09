@@ -1,14 +1,28 @@
-import React from 'react';
-import Link  from 'next/link';
+import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 interface ProtectedRouteProps {
-    element: JSX.Element;
+  element: JSX.Element;
 }
 
 const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ element }) => {
-    const isLoggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+  const router = useRouter();
 
-    return isLoggedIn ? element : <Link href="/login" replace />;
+  useEffect(() => {
+    const loginStatus = sessionStorage.getItem('isLoggedIn') === 'true';
+    setIsLoggedIn(loginStatus);
+    if (!loginStatus) {
+        router.push('/login');
+      }
+    }, [router]); 
+
+  if (!isLoggedIn) {
+    return <Link href="/login" replace />;
+  }
+
+  return element;
 };
 
 export default ProtectedRoute;
