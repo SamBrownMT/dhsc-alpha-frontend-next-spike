@@ -1,15 +1,13 @@
 'use client'
 
-import "../../globals.scss";
-import "../../styles/main.scss";
+import "../../../globals.scss";
+import "../../../styles/main.scss";
 import React, { useEffect, useRef, useState } from "react";
 import Layout from "../../../components/common/layout/Layout";
 import { Breadcrumb } from "../../../data/interfaces/Breadcrumb";
 import DataCategoriesSidePanel from "../../../components/common/panels/data-categories-side-panel/DataCategoriesSidePanel";
 import MainCategoriesSearch from "../../../components/common/main-categories-search/MainCategoriesSearch";
 import OrganisationFilter from "../../../components/common/organisation-filter/OrganisationFilter";
-import { useLoaderData } from "react-router-dom";
-import { LoaderData } from "../../../data/types/LoaderData";
 import CapacityTrackerTotalHoursAgencyWorkedService from "../../../services/capacity-tracker/CapacityTrackerTotalHoursAgencyWorkedByRegionService";
 import MetricDetailsFilterBar from "../../../components/metric-components/metric-details-filter-bar/MetricDetailsFilterBar";
 import MetricDetailsDownloadAndShareBar from "../../../components/metric-components/metric-details-download-and-share-bar/MetricDetailsDownloadAndShareBar";
@@ -21,12 +19,11 @@ import DataLimitationsContainer from "../../../components/common/data-limitation
 import SmartInsights from "../../../components/common/smart-insights/SmartInsights";
 import MetricDescription from "../../../components/metric-components/metric-description/MetricDescription";
 import MetricTable from "../../../components/metric-components/metric-table/MetricTable";
+import { getCapacityTrackerData } from "@/api/api";
 
-const CapacityTrackerTotalHoursWorkedByAgencyPage: React.FC = () => {
-  const {
-    capacityTrackerTotalHoursAgencyWorkedByRegionData,
-    capacityTrackerTotalHoursAgencyWorkedByLaData,
-  } = useLoaderData() as LoaderData;
+const CapacityTrackerTotalHoursWorkedByAgencyPage: React.FC = async () => {
+  const capacityTrackerTotalHoursAgencyWorkedByRegionData = await getCapacityTrackerData("region");
+  const capacityTrackerTotalHoursAgencyWorkedByLaData = await getCapacityTrackerData("la");
 
   const capacityTrackerTotalHoursAgencyWorkedService =
     new CapacityTrackerTotalHoursAgencyWorkedService(

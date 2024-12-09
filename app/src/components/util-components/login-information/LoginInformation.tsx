@@ -1,7 +1,15 @@
-import React from "react";
+'use client'
+
+import React, { useEffect, useState } from "react";
 
 const LoginInformation: React.FC = () => {
-  const userEmail = sessionStorage.getItem("email");
+  const [userEmail, setUserEmail] = useState<string | null>(null);
+
+  useEffect(() => {
+    const email = sessionStorage.getItem("email");
+    setUserEmail(email);
+  }, []);
+  
   return (
     <div className="govuk-!-text-align-right">
       <p className="govuk-body-s govuk-!-margin-bottom-2">

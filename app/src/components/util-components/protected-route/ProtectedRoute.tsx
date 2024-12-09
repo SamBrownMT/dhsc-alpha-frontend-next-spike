@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navigate } from 'react-router-dom';
+import Link  from 'next/link';
 
 interface ProtectedRouteProps {
     element: JSX.Element;
@@ -8,7 +8,7 @@ interface ProtectedRouteProps {
 const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ element }) => {
     const isLoggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
 
-    return isLoggedIn ? element : <Navigate to="/login" replace />;
+    return isLoggedIn ? element : <Link href="/login" replace />;
 };
 
 export default ProtectedRoute;

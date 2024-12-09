@@ -4,16 +4,14 @@ import "../../globals.scss";
 import "../../styles/main.scss";
 import React, { useCallback, useState } from "react";
 import Layout from "../../components/common/layout/Layout";
-import { useNavigate } from "react-router-dom";
 import StandardButton from "../../components/common/buttons/functionality/standard-button/StandardButton";
+import Link from "next/link";
 
 const LoginPage: React.FC = () => {
-  const navigate = useNavigate();
   const [email, setEmail] = useState<string>("");
   const handleSubmit = useCallback(() => {
     sessionStorage.setItem("isLoggedIn", "true");
     sessionStorage.setItem("email", email);
-    navigate("/home");
   }, [email]);
 
   return (
@@ -39,10 +37,12 @@ const LoginPage: React.FC = () => {
               />
             </div>
           </fieldset>
-          <StandardButton
-            buttonString="Login"
-            buttonFunction={handleSubmit}
-          ></StandardButton>
+          <Link href="/home" passHref>
+            <StandardButton
+              buttonString="Login"
+              buttonFunction={handleSubmit}
+            ></StandardButton>
+          </Link>
         </div>
       </div>
     </Layout>

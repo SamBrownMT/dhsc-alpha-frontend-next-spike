@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { MetricCardData } from "../../data/interfaces/MetricCardData";
 import MetricCard from "./metric-card/MetricCard";
 import CapacityTrackerTotalHoursAgencyWorkedByRegionService from "../../services/capacity-tracker/CapacityTrackerTotalHoursAgencyWorkedByRegionService";
@@ -15,14 +15,20 @@ const MetricCardsContainer: React.FC<Props> = ({
   capacityTrackerTotalHoursAgencyWorkedByRegionData,
   capacityTrackerTotalHoursAgencyWorkedByLaData,
 }) => {
-  const capacityTrackerService = new CapacityTrackerTotalHoursAgencyWorkedByRegionService(
-    capacityTrackerTotalHoursAgencyWorkedByRegionData,
-    capacityTrackerTotalHoursAgencyWorkedByLaData
-  );
+  const [metricCardsData, setMetricCardsData] = useState<MetricCardData[]>([]);
 
-  const metricCardsData: Array<MetricCardData> = [
-    capacityTrackerService.getMetricCardData(),
-  ];
+  useEffect(() => {
+    const capacityTrackerService = new CapacityTrackerTotalHoursAgencyWorkedByRegionService(
+      capacityTrackerTotalHoursAgencyWorkedByRegionData,
+      capacityTrackerTotalHoursAgencyWorkedByLaData
+    );
+
+    const metrics = [capacityTrackerService.getMetricCardData()];
+    setMetricCardsData(metrics);
+  }, [
+    capacityTrackerTotalHoursAgencyWorkedByRegionData,
+    capacityTrackerTotalHoursAgencyWorkedByLaData,
+  ]);
 
   return (
     <div>
