@@ -7,8 +7,8 @@ import CapacityTrackerTotalHoursAgencyWorkedByRegionService from "../../services
 import { CapacityTrackerTotalHoursAgencyWorked } from "@/data/interfaces/CapacityTrackerTotalHoursAgencyWorked";
 
 type Props = {
-  capacityTrackerTotalHoursAgencyWorkedByRegionData: CapacityTrackerTotalHoursAgencyWorked[]; // needs to be changed
-  capacityTrackerTotalHoursAgencyWorkedByLaData: CapacityTrackerTotalHoursAgencyWorked[]; // needs to be changed
+  capacityTrackerTotalHoursAgencyWorkedByRegionData: CapacityTrackerTotalHoursAgencyWorked[]; 
+  capacityTrackerTotalHoursAgencyWorkedByLaData: CapacityTrackerTotalHoursAgencyWorked[]; 
 };
 
 const MetricCardsContainer: React.FC<Props> = ({
