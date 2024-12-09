@@ -1,7 +1,5 @@
 'use client'
 
-import "../../globals.scss";
-import "../../styles/main.scss";
 import React, { useCallback, useState } from "react";
 import Layout from "../../components/common/layout/Layout";
 import StandardButton from "../../components/common/buttons/functionality/standard-button/StandardButton";

@@ -6,8 +6,8 @@ COPY package.json ./
 COPY package-lock.json ./
 COPY ./ ./
 
-ARG VITE_APP_ENV
-ENV VITE_APP_ENV=${VITE_APP_ENV}
+ARG NEXT_PUBLIC_APP_ENV
+ENV NEXT_PUBLIC_APP_ENV=${NEXT_PUBLIC_APP_ENV}
 
 RUN npm install --legacy-peer-deps
 RUN npm run build

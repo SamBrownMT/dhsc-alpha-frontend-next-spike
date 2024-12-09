@@ -1,9 +1,6 @@
 'use client'
 
-import "../../globals.scss";
-import "../../styles/main.scss";
 import React from "react";
-import Link from "next/link";
 import Layout from "../../components/common/layout/Layout";
 import ButtonWithArrow from "../../components/common/buttons/navigation/button-with-arrow/ButtonWithArrow";
 import "./registerPage.scss";
