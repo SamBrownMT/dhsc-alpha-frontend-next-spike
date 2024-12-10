@@ -1,7 +1,0 @@
-#!/bin/sh
-"$(dirname "$0")/_/husky.sh"
-
-echo "Running linter"
-echo "test test"
-cd app
-npx lint-staged
