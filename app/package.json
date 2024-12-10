@@ -9,6 +9,10 @@
     "start": "npx serve@latest ./build",
     "lint": "eslint ."
   },
+  "lint-staged": {
+    "*.ts": "eslint --config ./eslint.config.js",
+    "*.tsx": "eslint --config ./eslint.config.js"
+  },
   "dependencies": {
     "@types/d3": "^7.4.3",
     "axios": "^1.7.5",
