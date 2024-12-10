@@ -2,5 +2,5 @@
 "$(dirname "$0")/_/husky.sh"
 
 echo "Running linter"
-
+cd app
 npx lint-staged
