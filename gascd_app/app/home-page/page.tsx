@@ -1,7 +1,7 @@
 'use client'
 
 import React from "react";
-// import Layout from "../../components/common/layout/Layout";
+import Layout from '../../src/components/common/layout/Layout';
 import { Breadcrumb } from "../../src/data/interfaces/Breadcrumb";
 import { MetricCardData } from "../../src/data/interfaces/MetricCardData";
 import HomePageDataUpdatesPanel from "../../src/components/home-page-components/home-page-data-updates-panel/HomePageDataUpdatesPanel";
@@ -43,11 +43,11 @@ const HomePage: React.FC = () => {
   ];
 
   return (
-    // <Layout
-      // autoSpaceMainContent={false}
-      // breadcrumbs={breadcrumbs}
-      // showLoginInformation={true}
-    // >
+    <Layout
+      autoSpaceMainContent={false}
+      breadcrumbs={breadcrumbs}
+      showLoginInformation={true}
+    >
       <div className="govuk-grid-row">
         <div className="govuk-grid-column-one-third">
           <div className="govuk-grid-row">
@@ -94,7 +94,7 @@ const HomePage: React.FC = () => {
           <HomePageDataDefinitionsPanel />
         </div>
       </div>
-    // </Layout>
+    </Layout>
   );
 };
 
