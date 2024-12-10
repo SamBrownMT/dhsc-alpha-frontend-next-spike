@@ -1,23 +1,23 @@
 'use client'
 
 import React from "react";
-import Layout from "../../components/common/layout/Layout";
-import { Breadcrumb } from "../../data/interfaces/Breadcrumb";
-import { MetricCardData } from "../../data/interfaces/MetricCardData";
-import HomePageDataUpdatesPanel from "../../components/home-page-components/home-page-data-updates-panel/HomePageDataUpdatesPanel";
-import HomePageDataDefinitionsPanel from "../../components/home-page-components/home-page-data-definitions-panel/HomePageDataDefinitionsPanel";
+// import Layout from "../../components/common/layout/Layout";
+import { Breadcrumb } from "../../src/data/interfaces/Breadcrumb";
+import { MetricCardData } from "../../src/data/interfaces/MetricCardData";
+import HomePageDataUpdatesPanel from "../../src/components/home-page-components/home-page-data-updates-panel/HomePageDataUpdatesPanel";
+import HomePageDataDefinitionsPanel from "../../src/components/home-page-components/home-page-data-definitions-panel/HomePageDataDefinitionsPanel";
 import { useLoaderData } from "react-router-dom";
-import { LoaderData } from "../../data/types/LoaderData";
-import CapacityTrackerTotalHoursAgencyWorkedByRegionService from "../../services/capacity-tracker/CapacityTrackerTotalHoursAgencyWorkedByRegionService";
-import MetricCard from "../../components/metric-components/metric-card/MetricCard";
-import HomePageAddFavouriteMetricsPanel from "../../components/home-page-components/home-page-add-favourite-metrics-panel/FavouriteMetricsPanel";
-import DataCategoriesSidePanel from "../../components/common/panels/data-categories-side-panel/DataCategoriesSidePanel";
-import MainCategoriesSearch from "../../components/common/main-categories-search/MainCategoriesSearch";
-import OrganisationFilter from "../../components/common/organisation-filter/OrganisationFilter";
-import YourFavouriteMetricsSidePanel from "../../components/common/panels/your-favourite-metrics-side-panel/YourFavouriteMetricsSidePanel";
-import DataGuideSidePanel from "../../components/common/panels/data-guide-side-panel/DataGuideSidePanel";
-import ReportLinksSidePanel from "../../components/common/panels/report-links-side-panel/ReportLinksSidePanel";
-import KnowledgeCentreSidePanel from "../../components/common/panels/knowledge-centre-side-panel/KnowledgeCentreSidePanel";
+import { LoaderData } from "../../src/data/types/LoaderData";
+import CapacityTrackerTotalHoursAgencyWorkedByRegionService from "../../src/services/capacity-tracker/CapacityTrackerTotalHoursAgencyWorkedByRegionService";
+import MetricCard from "../../src/components/metric-components/metric-card/MetricCard";
+import HomePageAddFavouriteMetricsPanel from "../../src/components/home-page-components/home-page-add-favourite-metrics-panel/FavouriteMetricsPanel";
+import DataCategoriesSidePanel from "../../src/components/common/panels/data-categories-side-panel/DataCategoriesSidePanel";
+import MainCategoriesSearch from "../../src/components/common/main-categories-search/MainCategoriesSearch";
+import OrganisationFilter from "../../src/components/common/organisation-filter/OrganisationFilter";
+import YourFavouriteMetricsSidePanel from "../../src/components/common/panels/your-favourite-metrics-side-panel/YourFavouriteMetricsSidePanel";
+import DataGuideSidePanel from "../../src/components/common/panels/data-guide-side-panel/DataGuideSidePanel";
+import ReportLinksSidePanel from "../../src/components/common/panels/report-links-side-panel/ReportLinksSidePanel";
+import KnowledgeCentreSidePanel from "../../src/components/common/panels/knowledge-centre-side-panel/KnowledgeCentreSidePanel";
 
 const HomePage: React.FC = () => {
   const breadcrumbs: Array<Breadcrumb> = [
@@ -43,11 +43,11 @@ const HomePage: React.FC = () => {
   ];
 
   return (
-    <Layout
-      autoSpaceMainContent={false}
-      breadcrumbs={breadcrumbs}
-      showLoginInformation={true}
-    >
+    // <Layout
+      // autoSpaceMainContent={false}
+      // breadcrumbs={breadcrumbs}
+      // showLoginInformation={true}
+    // >
       <div className="govuk-grid-row">
         <div className="govuk-grid-column-one-third">
           <div className="govuk-grid-row">
@@ -94,7 +94,7 @@ const HomePage: React.FC = () => {
           <HomePageDataDefinitionsPanel />
         </div>
       </div>
-    </Layout>
+    // </Layout>
   );
 };
 

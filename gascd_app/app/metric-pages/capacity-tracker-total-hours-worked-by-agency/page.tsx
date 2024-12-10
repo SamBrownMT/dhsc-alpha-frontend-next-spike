@@ -1,24 +1,24 @@
 'use client'
 
 import React, { useEffect, useRef, useState } from "react";
-import Layout from "../../../components/common/layout/Layout";
-import { Breadcrumb } from "../../../data/interfaces/Breadcrumb";
-import DataCategoriesSidePanel from "../../../components/common/panels/data-categories-side-panel/DataCategoriesSidePanel";
-import MainCategoriesSearch from "../../../components/common/main-categories-search/MainCategoriesSearch";
-import OrganisationFilter from "../../../components/common/organisation-filter/OrganisationFilter";
+import Layout from "../../../src/components/common/layout/Layout";
+import { Breadcrumb } from "../../../src/data/interfaces/Breadcrumb";
+import DataCategoriesSidePanel from "../../../src/components/common/panels/data-categories-side-panel/DataCategoriesSidePanel";
+import MainCategoriesSearch from "../../../src/components/common/main-categories-search/MainCategoriesSearch";
+import OrganisationFilter from "../../../src/components/common/organisation-filter/OrganisationFilter";
 import { useLoaderData } from "react-router-dom";
-import { LoaderData } from "../../../data/types/LoaderData";
-import CapacityTrackerTotalHoursAgencyWorkedService from "../../../services/capacity-tracker/CapacityTrackerTotalHoursAgencyWorkedByRegionService";
-import MetricDetailsFilterBar from "../../../components/metric-components/metric-details-filter-bar/MetricDetailsFilterBar";
-import MetricDetailsDownloadAndShareBar from "../../../components/metric-components/metric-details-download-and-share-bar/MetricDetailsDownloadAndShareBar";
-import YourFavouriteMetricsSidePanel from "../../../components/common/panels/your-favourite-metrics-side-panel/YourFavouriteMetricsSidePanel";
-import DataGuideSidePanel from "../../../components/common/panels/data-guide-side-panel/DataGuideSidePanel";
-import ReportLinksSidePanel from "../../../components/common/panels/report-links-side-panel/ReportLinksSidePanel";
-import KnowledgeCentreSidePanel from "../../../components/common/panels/knowledge-centre-side-panel/KnowledgeCentreSidePanel";
-import DataLimitationsContainer from "../../../components/common/data-limitations-container/DataLimitationsContainer";
-import SmartInsights from "../../../components/common/smart-insights/SmartInsights";
-import MetricDescription from "../../../components/metric-components/metric-description/MetricDescription";
-import MetricTable from "../../../components/metric-components/metric-table/MetricTable";
+import { LoaderData } from "../../../src/data/types/LoaderData";
+import CapacityTrackerTotalHoursAgencyWorkedService from "../../../src/services/capacity-tracker/CapacityTrackerTotalHoursAgencyWorkedByRegionService";
+import MetricDetailsFilterBar from "../../../src/components/metric-components/metric-details-filter-bar/MetricDetailsFilterBar";
+import MetricDetailsDownloadAndShareBar from "../../../src/components/metric-components/metric-details-download-and-share-bar/MetricDetailsDownloadAndShareBar";
+import YourFavouriteMetricsSidePanel from "../../../src/components/common/panels/your-favourite-metrics-side-panel/YourFavouriteMetricsSidePanel";
+import DataGuideSidePanel from "../../../src/components/common/panels/data-guide-side-panel/DataGuideSidePanel";
+import ReportLinksSidePanel from "../../../src/components/common/panels/report-links-side-panel/ReportLinksSidePanel";
+import KnowledgeCentreSidePanel from "../../../src/components/common/panels/knowledge-centre-side-panel/KnowledgeCentreSidePanel";
+import DataLimitationsContainer from "../../../src/components/common/data-limitations-container/DataLimitationsContainer";
+import SmartInsights from "../../../src/components/common/smart-insights/SmartInsights";
+import MetricDescription from "../../../src/components/metric-components/metric-description/MetricDescription";
+import MetricTable from "../../../src/components/metric-components/metric-table/MetricTable";
 
 const CapacityTrackerTotalHoursWorkedByAgencyPage: React.FC = () => {
   const {

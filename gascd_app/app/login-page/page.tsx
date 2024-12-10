@@ -1,9 +1,9 @@
 'use client'
 
 import React, { useCallback, useState } from "react";
-import Layout from "../../components/common/layout/Layout";
+// import Layout from "../../components/common/layout/Layout";
 import { useNavigate } from "react-router-dom";
-import StandardButton from "../../components/common/buttons/functionality/standard-button/StandardButton";
+import StandardButton from "../../src/components/common/buttons/functionality/standard-button/StandardButton";
 
 const LoginPage: React.FC = () => {
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ const LoginPage: React.FC = () => {
   }, [email]);
 
   return (
-    <Layout showLoginInformation={false}>
+    // <Layout showLoginInformation={false}>
       <div className="govuk-grid-row">
         <div className="govuk-grid-column-two-thirds">
           <h1 className="govuk-heading-l">Sign In</h1>
@@ -43,7 +43,7 @@ const LoginPage: React.FC = () => {
           ></StandardButton>
         </div>
       </div>
-    </Layout>
+    // </Layout>
   );
 };
 
