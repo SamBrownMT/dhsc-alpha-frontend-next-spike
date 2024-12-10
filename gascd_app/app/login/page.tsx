@@ -1,8 +1,8 @@
 'use client'
 
 import React, { useCallback, useState } from "react";
-import Layout from "../../components/common/layout/Layout";
-import StandardButton from "../../components/common/buttons/functionality/standard-button/StandardButton";
+import Layout from "../../src/components/common/layout/Layout";
+import StandardButton from "../../src/components/common/buttons/functionality/standard-button/StandardButton";
 import Link from "next/link";
 
 const LoginPage: React.FC = () => {

@@ -6,3 +6,7 @@ docker-up-rebuild:
 
 docker-down:
 	docker-compose -f ./app/docker-compose.yml down
+
+run-dev:
+	cd gascd_app; \
+	 npm run dev

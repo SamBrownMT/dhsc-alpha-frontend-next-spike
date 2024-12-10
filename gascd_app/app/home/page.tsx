@@ -1,18 +1,17 @@
-import "../../globals.scss";
-import "../../styles/main.scss";
+import "../../src/styles/main.scss";
 import React from "react";
-import Layout from "../../components/common/layout/Layout";
-import { Breadcrumb } from "../../data/interfaces/Breadcrumb";
-import MetricCardsContainer from "../../components/metric-components/MetricCardsContainer";
-import HomePageAddFavouriteMetricsPanel from "../../components/home-page-components/home-page-add-favourite-metrics-panel/FavouriteMetricsPanel";
-import DataCategoriesSidePanel from "../../components/common/panels/data-categories-side-panel/DataCategoriesSidePanel";
-import MainCategoriesSearch from "../../components/common/main-categories-search/MainCategoriesSearch";
-import OrganisationFilter from "../../components/common/organisation-filter/OrganisationFilter";
-import YourFavouriteMetricsSidePanel from "../../components/common/panels/your-favourite-metrics-side-panel/YourFavouriteMetricsSidePanel";
-import DataGuideSidePanel from "../../components/common/panels/data-guide-side-panel/DataGuideSidePanel";
-import ReportLinksSidePanel from "../../components/common/panels/report-links-side-panel/ReportLinksSidePanel";
-import KnowledgeCentreSidePanel from "../../components/common/panels/knowledge-centre-side-panel/KnowledgeCentreSidePanel";
-import { getCapacityTrackerData } from "../../api/api";
+import Layout from "../../src/components/common/layout/Layout";
+import { Breadcrumb } from "../../src/data/interfaces/Breadcrumb";
+import MetricCardsContainer from "../../src/components/metric-components/MetricCardsContainer";
+import HomePageAddFavouriteMetricsPanel from "../../src/components/home-page-components/home-page-add-favourite-metrics-panel/FavouriteMetricsPanel";
+import DataCategoriesSidePanel from "../../src/components/common/panels/data-categories-side-panel/DataCategoriesSidePanel";
+import MainCategoriesSearch from "../../src/components/common/main-categories-search/MainCategoriesSearch";
+import OrganisationFilter from "../../src/components/common/organisation-filter/OrganisationFilter";
+import YourFavouriteMetricsSidePanel from "../../src/components/common/panels/your-favourite-metrics-side-panel/YourFavouriteMetricsSidePanel";
+import DataGuideSidePanel from "../../src/components/common/panels/data-guide-side-panel/DataGuideSidePanel";
+import ReportLinksSidePanel from "../../src/components/common/panels/report-links-side-panel/ReportLinksSidePanel";
+import KnowledgeCentreSidePanel from "../../src/components/common/panels/knowledge-centre-side-panel/KnowledgeCentreSidePanel";
+import { getCapacityTrackerData } from "../../src/api/api";
 
 export default async function HomePage() {
   const capacityTrackerTotalHoursAgencyWorkedByRegionData = await getCapacityTrackerData("region");
