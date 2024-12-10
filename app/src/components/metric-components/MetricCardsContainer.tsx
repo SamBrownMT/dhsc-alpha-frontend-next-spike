@@ -7,7 +7,7 @@ import CapacityTrackerTotalHoursAgencyWorkedByRegionService from "../../services
 import { CapacityTrackerTotalHoursAgencyWorked } from "@/data/interfaces/CapacityTrackerTotalHoursAgencyWorked";
 
 type Props = {
-  capacityTrackerTotalHoursAgencyWorkedByRegionData: CapacityTrackerTotalHoursAgencyWorked[]; 
+  capacityTrackerTotalHoursAgencyWorkedByRegionData: any[]; 
   capacityTrackerTotalHoursAgencyWorkedByLaData: CapacityTrackerTotalHoursAgencyWorked[]; 
 };
 
