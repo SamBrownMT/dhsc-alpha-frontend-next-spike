@@ -1,6 +1,6 @@
 #!/bin/sh
 "$(dirname "$0")/_/husky.sh"
 
-echo "Running linter"
+echo "Running linter and Prettier"
 cd app
 npx lint-staged
