@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import React, { useEffect, useState } from "react";
-import { MetricCardData } from "../../data/interfaces/MetricCardData";
-import MetricCard from "./metric-card/MetricCard";
-import CapacityTrackerTotalHoursAgencyWorkedByRegionService from "../../services/capacity-tracker/CapacityTrackerTotalHoursAgencyWorkedByRegionService";
-import { CapacityTrackerTotalHoursAgencyWorked } from "@/data/interfaces/CapacityTrackerTotalHoursAgencyWorked";
+import React, { useEffect, useState } from 'react';
+import { MetricCardData } from '../../data/interfaces/MetricCardData';
+import MetricCard from './metric-card/MetricCard';
+import CapacityTrackerTotalHoursAgencyWorkedByRegionService from '../../services/capacity-tracker/CapacityTrackerTotalHoursAgencyWorkedByRegionService';
+import { CapacityTrackerTotalHoursAgencyWorked } from '@/data/interfaces/CapacityTrackerTotalHoursAgencyWorked';
 
 type Props = {
-  capacityTrackerTotalHoursAgencyWorkedByRegionData: CapacityTrackerTotalHoursAgencyWorked[]; 
-  capacityTrackerTotalHoursAgencyWorkedByLaData: CapacityTrackerTotalHoursAgencyWorked[]; 
+  capacityTrackerTotalHoursAgencyWorkedByRegionData: CapacityTrackerTotalHoursAgencyWorked[];
+  capacityTrackerTotalHoursAgencyWorkedByLaData: CapacityTrackerTotalHoursAgencyWorked[];
 };
 
 const MetricCardsContainer: React.FC<Props> = ({
@@ -18,10 +18,11 @@ const MetricCardsContainer: React.FC<Props> = ({
   const [metricCardsData, setMetricCardsData] = useState<MetricCardData[]>([]);
 
   useEffect(() => {
-    const capacityTrackerService = new CapacityTrackerTotalHoursAgencyWorkedByRegionService(
-      capacityTrackerTotalHoursAgencyWorkedByRegionData,
-      capacityTrackerTotalHoursAgencyWorkedByLaData
-    );
+    const capacityTrackerService =
+      new CapacityTrackerTotalHoursAgencyWorkedByRegionService(
+        capacityTrackerTotalHoursAgencyWorkedByRegionData,
+        capacityTrackerTotalHoursAgencyWorkedByLaData
+      );
 
     const metrics = [capacityTrackerService.getMetricCardData()];
     setMetricCardsData(metrics);

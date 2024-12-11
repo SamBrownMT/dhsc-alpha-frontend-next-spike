@@ -7,7 +7,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "npx serve@latest ./build",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "format": "prettier --write",
+    "prepare": "cd ../.. && husky .husky"
+  },
+  "lint-staged": {
+    "**/*.{ts,tsx}": "eslint --config eslint.config.js",
+    "**/*.{js,jsx,ts,tsx,json,css,md}": "prettier --write"
   },
   "dependencies": {
     "@types/d3": "^7.4.3",
@@ -26,7 +32,9 @@
     "@types/react": "^18.3.3",
     "eslint": "^9.16.0",
     "eslint-plugin-react-refresh": "^0.4.9",
-    "globals": "^15.9.0",    
+    "globals": "^15.9.0",
+    "husky": "^9.1.7",
+    "prettier": "^3.4.2",
     "sass": "^1.82.0",
     "typescript": "5.7.2",
     "typescript-eslint": "^8.0.1"
