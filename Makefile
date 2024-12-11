@@ -6,3 +6,6 @@ docker-up-rebuild:
 
 docker-down:
 	docker-compose -f ./app/docker-compose.yml down
+
+format-staged:
+	cd app && npx lint-staged
