@@ -9,3 +9,6 @@ docker-down:
 
 format-staged:
 	cd app && npx lint-staged
+run-dev:
+	cd gascd_app; \
+	 npm run dev

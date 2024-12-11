@@ -1,7 +1,7 @@
 'use client'
 
 import React, { MouseEvent, ReactNode, useEffect, useRef } from "react";
-import { initAll } from "../../../assets/js/govuk-frontend.min.js";
+import { initAll } from '../../../../public/govuk-frontend/js/govuk-frontend.min.js';
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
 import { focusMainContent } from "../../../helpers/ManageFocus";

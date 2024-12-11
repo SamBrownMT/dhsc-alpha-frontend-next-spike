@@ -1,13 +1,12 @@
 'use client'
 
 import React from "react";
-import Layout from "../../components/common/layout/Layout";
-import ButtonWithArrow from "../../components/common/buttons/navigation/button-with-arrow/ButtonWithArrow";
+import Layout from '../../src/components/common/layout/Layout';
+import ButtonWithArrow from "../../src/components/common/buttons/navigation/button-with-arrow/ButtonWithArrow";
 import "./registerPage.scss";
 
 const RegisterPage: React.FC = () => {
   return (
-    <>
       <Layout showLoginInformation={false}>
         <div className="govuk-grid-row">
           <div className="govuk-grid-column-two-thirds">
@@ -66,7 +65,6 @@ const RegisterPage: React.FC = () => {
           </div>
         </div>
       </Layout>
-    </>
   );
 };
 
