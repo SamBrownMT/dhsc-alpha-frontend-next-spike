@@ -2,5 +2,5 @@
 "$(dirname "$0")/_/husky.sh"
 
 echo "Running linter and Prettier"
-cd app
+cd gascd_app
 npx lint-staged
