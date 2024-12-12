@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "npx serve@latest ./build",
+    "start": "next start -p $CONTAINER_PORT",
     "lint": "eslint .",
     "format": "prettier --write",
     "prepare": "cd ../.. && husky .husky"
