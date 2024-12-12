@@ -8,7 +8,7 @@ class CapacityTrackerTotalHoursAgencyWorkedService {
   private totalHoursAgencyWorkedByLaData: BarchartData[];
 
   constructor(
-    capacityTrackerTotalHoursAgencyWorkedByRegionData: CapacityTrackerTotalHoursAgencyWorked[],
+    capacityTrackerTotalHoursAgencyWorkedByRegionData: any[],
     capacityTrackerTotalHoursAgencyWorkedByLaData: CapacityTrackerTotalHoursAgencyWorked[]
   ) {
     this.totalHoursAgencyWorkedByRegionData = this.transformToChartData(
