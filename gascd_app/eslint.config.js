@@ -24,6 +24,7 @@ export default [
     rules: {      
       ...react.configs.recommended.rules, // Extend React recommended rules
       ...reactHooks.config,
+      ...typescriptEslint.configs.recommended.rules,
       "react/react-in-jsx-scope": "off",
     }
   }
