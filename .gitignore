@@ -140,3 +140,5 @@ __azurite_db*__.json
 
 .next
 next-env.d.ts
+
+.vscode

@@ -3,4 +3,4 @@
 
 echo "Running linter and Prettier"
 cd gascd_app
-npx lint-staged
+npm run lint-staged
