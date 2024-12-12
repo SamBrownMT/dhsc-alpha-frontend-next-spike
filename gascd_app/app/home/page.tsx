@@ -26,7 +26,7 @@ async function fetchData():Promise<LoaderData> {
       capacityTrackerTotalHoursAgencyWorkedByLaData
     };
   } catch (error) {
-    console.error("Unable to get Capacity Tracker information")
+    console.error("Unable to get Capacity Tracker information.")
     return {
       capacityTrackerTotalHoursAgencyWorkedByRegionData: [], capacityTrackerTotalHoursAgencyWorkedByLaData: []
     };
