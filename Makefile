@@ -22,14 +22,11 @@ setup-husky:
 	 npm install -g husky
 	cd ..; \
 	 npx husky install
-	# Navigate to .husky/_ and clean up
 	find .husky/_ ! -name 'husky.sh' -type f -exec rm -f {} +
-	# Create the pre-commit file inside .husky/_
 	echo '#!/bin/sh' > .husky/_/pre-commit
 	echo '"$$(dirname "$$0")/husky.sh"' >> .husky/_/pre-commit
 	echo '' >> .husky/_/pre-commit
 	echo 'echo "Running linter and Prettier"' >> .husky/_/pre-commit
 	echo 'cd gascd_app' >> .husky/_/pre-commit
 	echo 'npx lint-staged' >> .husky/_/pre-commit
-	# Make the pre-commit script executable
 	chmod +x .husky/_/pre-commit
