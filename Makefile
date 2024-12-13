@@ -11,7 +11,8 @@ docker-down:
 	docker-compose -f ./gascd_app/docker-compose.yml down
 
 format-staged:
-	cd app && npx lint-staged
+	cd gascd_app && npx lint-staged
+
 run-dev:
 	cd gascd_app; \
 	 npm run dev
