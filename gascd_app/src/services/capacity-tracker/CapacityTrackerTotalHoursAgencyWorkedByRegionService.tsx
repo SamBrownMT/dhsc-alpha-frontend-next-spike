@@ -1,9 +1,7 @@
-'use client'
-
-import { generateBarchartSvg } from "../charts/BarchartService";
-import { BarchartData } from "../../data/interfaces/BarchartData";
-import { CapacityTrackerTotalHoursAgencyWorked } from "../../data/interfaces/CapacityTrackerTotalHoursAgencyWorked";
-import { MetricCardData } from "../../data/interfaces/MetricCardData";
+import { generateBarchartSvg } from '../charts/BarchartService';
+import { BarchartData } from '../../data/interfaces/BarchartData';
+import { CapacityTrackerTotalHoursAgencyWorked } from '../../data/interfaces/CapacityTrackerTotalHoursAgencyWorked';
+import { MetricCardData } from '../../data/interfaces/MetricCardData';
 
 class CapacityTrackerTotalHoursAgencyWorkedService {
   private totalHoursAgencyWorkedByRegionData: BarchartData[];
@@ -34,11 +32,11 @@ class CapacityTrackerTotalHoursAgencyWorkedService {
       data: this.totalHoursAgencyWorkedByRegionData,
       width: 675,
       height: 400,
-      xLabel: "Regions",
-      yLabel: "Total hours worked that are agency",
-      title: "",
-      medianLineColor: "#000000",
-      barColor: "#1d70b8",
+      xLabel: 'Regions',
+      yLabel: 'Total hours worked that are agency',
+      title: '',
+      medianLineColor: '#000000',
+      barColor: '#1d70b8',
       showLegend: false,
       showToolTip: true,
       shortenLabels: false,
@@ -52,13 +50,13 @@ class CapacityTrackerTotalHoursAgencyWorkedService {
       data: this.totalHoursAgencyWorkedByLaData,
       width: 675,
       height: 400,
-      xLabel: "Local Authorities",
-      yLabel: "Total hours worked that are agency",
-      title: "",
+      xLabel: 'Local Authorities',
+      yLabel: 'Total hours worked that are agency',
+      title: '',
       showXValues: false,
       showQuartileRanges: true,
-      medianLineColor: "#000000",
-      barColor: "#1d70b8",
+      medianLineColor: '#000000',
+      barColor: '#1d70b8',
       showLegend: false,
       showToolTip: true,
       shortenLabels: false,
@@ -72,11 +70,11 @@ class CapacityTrackerTotalHoursAgencyWorkedService {
       data: this.totalHoursAgencyWorkedByRegionData,
       width: 270,
       height: 200,
-      xLabel: "",
-      yLabel: "",
-      title: "",
-      barColor: "#1d70b8",
-      medianLineColor: "#000000",
+      xLabel: '',
+      yLabel: '',
+      title: '',
+      barColor: '#1d70b8',
+      medianLineColor: '#000000',
       showLegend: false,
       showToolTip: false,
       shortenLabels: true,
@@ -86,14 +84,14 @@ class CapacityTrackerTotalHoursAgencyWorkedService {
 
     return {
       title:
-        "Percentage of Total Work Hours Covered by Agency Staff, by Region",
+        'Percentage of Total Work Hours Covered by Agency Staff, by Region',
       svg: barchart,
       description:
-        "The percentage of total work hours in each region that are completed by agency staff",
-      sourceUrl: "#",
-      metricDetailPageUrl: "metric/capacity-tracker-total-hours-by-agency",
-      sourceLinkString: "CT",
-      limitationDescription: "lorem lorem lorem lorem lorem lorem",
+        'The percentage of total work hours in each region that are completed by agency staff',
+      sourceUrl: '#',
+      metricDetailPageUrl: 'metric/capacity-tracker-total-hours-by-agency',
+      sourceLinkString: 'CT',
+      limitationDescription: 'lorem lorem lorem lorem lorem lorem',
     };
   }
 
