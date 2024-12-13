@@ -47,6 +47,13 @@ This project requires the following pre-requisites:
 2. Navigate to the App directory `cd app`
 3. Install dependencies `npm i`
 
+#### Setting up husky pre-commit hooks
+
+1. Navigate to the root of the project
+2. Run the command 'make setup-husky' 
+3. Linting and Prettier should now run on any staged changes during pre-commit
+
+
 ## Usage
 
 ### Running the application
