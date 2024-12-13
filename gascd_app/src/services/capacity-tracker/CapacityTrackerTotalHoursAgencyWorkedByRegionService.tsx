@@ -4,7 +4,7 @@ import { CapacityTrackerTotalHoursAgencyWorked } from '../../data/interfaces/Cap
 import { MetricCardData } from '../../data/interfaces/MetricCardData';
 
 class CapacityTrackerTotalHoursAgencyWorkedService {
-  private totalHoursAgencyWorkedByRegionData: BarchartData[];
+  private totalHoursAgencyWorkedByRegionData: any[];
   private totalHoursAgencyWorkedByLaData: BarchartData[];
 
   constructor(
