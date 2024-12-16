@@ -1,15 +1,15 @@
 import { Config } from 'jest';
 
 const config: Config = {
-  testEnvironment: 'jest-environment-jsdom',
-  testMatch: ['rootDir/tests/**/*.(test|spec).(ts|tsx)'],
+  testEnvironment: 'jsdom',
+  testMatch: ['<rootDir>/tests/**/*.(test|spec).(ts|tsx)'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   transform: {
     '^.+\\.(ts|tsx)$': 'ts-jest',
   },
   moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/gascd_app/src/$1', // Resolve @ to the src folder in gascd_app
-    '^@/test-utils/(.*)$': '<rootDir>/tests/utils/$1', // Resolve test-utils to the tests folder
+    '^@/(.*)$': '<rootDir>/src/$1',
+    '^@/test-utils/(.*)$': '<rootDir>/tests/utils/$1',
   },
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
 };
