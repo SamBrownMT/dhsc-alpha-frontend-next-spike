@@ -16,6 +16,7 @@
     "**/*.{js,jsx,ts,tsx,json,css,md}": "prettier --write"
   },
   "dependencies": {
+    "@next/eslint-plugin-next": "^15.1.0",
     "@types/d3": "^7.4.3",
     "axios": "^1.7.5",
     "d3": "^7.9.0",

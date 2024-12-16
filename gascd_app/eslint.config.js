@@ -2,6 +2,7 @@ import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import typescriptEslint from '@typescript-eslint/eslint-plugin';
 import typescriptParser from '@typescript-eslint/parser';
+import pluginNext from '@next/eslint-plugin-next';
 
 export default [
   {
@@ -14,15 +15,16 @@ export default [
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
-      parser: typescriptParser, // Use TypeScript parser
+      parser: typescriptParser,
     },
     plugins: {
-      react, // React-specific rules
-      reactHooks, // React Hooks-specific rules
-      '@typescript-eslint': typescriptEslint, // TypeScript-specific rules
+      react,
+      reactHooks,
+      '@typescript-eslint': typescriptEslint,
+      '@next/next': pluginNext,
     },
     rules: {
-      ...react.configs.recommended.rules, // Extend React recommended rules
+      ...react.configs.recommended.rules,
       ...reactHooks.config,
       //...typescriptEslint.configs.recommended.rules, temporarily removed for build.
       'react/react-in-jsx-scope': 'off',
